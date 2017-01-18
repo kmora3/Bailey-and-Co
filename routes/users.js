@@ -6,18 +6,18 @@ const
 
 userRouter.route('/login')
   .get((req,res) => {
-    res.json({message: "This is the login page"})
+    res.render('login')
   })
   // post request for actually logging in
 
 userRouter.route('/signup')
   .get((req,res) => {
-    res.json({message: "This is the signup page"})
+    res.render('signup')
   })
   // post request for actually signing up
 
 userRouter.get('/profile', (req,res) => {
-  res.json({message: "This is a users profile page"})
+  res.render('users/show')
 })
 
 // logout action and route
