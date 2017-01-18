@@ -12,7 +12,8 @@ const
   ejs = require('ejs'),
   dotenv = require('dotenv').load({silent: true}),
   session = require('express-session'),
-  MongoDBStore = require('connect-mongodb-session')(session)
+  MongoDBStore = require('connect-mongodb-session')(session),
+  userRoutes = require('./routes/users.js')
 
 const
   mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/bailey-and-co'
@@ -48,6 +49,8 @@ app.use(ejsLayouts)
 app.get('/', (req,res) => {
   res.json({message: "This is the homepage"})
 })
+
+app.use('/', userRoutes)
 
 // server
 app.listen(3000, (err) => {
