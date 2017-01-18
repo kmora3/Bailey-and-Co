@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2><%= location.local.name %></h2>
+      <div class="well">
+        <ul class="list-group">
+          <% location.reviews.forEach((l) => { %>
+            <li class="list-group-item">
+              <h3>
+                <a href="/locations/<%=l._id%>">
+                <%= l. title %></h3>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+</div>
