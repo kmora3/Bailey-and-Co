@@ -1,10 +1,10 @@
 {
   "name": "bailey-and-co",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,5 +24,15 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmora3/Bailey-and-Co.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kmora3/Bailey-and-Co/issues"
+  },
+  "homepage": "https://github.com/kmora3/Bailey-and-Co#readme",
+  "description": ""
 }
