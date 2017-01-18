@@ -17,7 +17,8 @@ const
   ejs = require('ejs'),
   dotenv = require('dotenv').load({silent: true}),
   session = require('express-session'),
-  MongoDBStore = require('connect-mongodb-session')(session)
+  MongoDBStore = require('connect-mongodb-session')(session),
+  userRoutes = require('./routes/users.js')
 
   mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/bailey-and-co'
 
@@ -33,6 +34,7 @@ const store = new MongoDBStore({
 
 // middleware
 app.use(logger('dev'))
+app.use(express.static(__dirname + '/public'))
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -51,8 +53,9 @@ app.use(ejsLayouts)
 
 
 app.get('/', (req,res) => {
-  res.json({message: "This is the homepage"})
+  res.render('pages/home')
 })
+
 
 //Yelp API integration
 
@@ -116,6 +119,9 @@ var request_yelp = function(set_parameters, callback) {
       res.json(JSON.parse(body))
     })
   })
+
+app.use('/', userRoutes)
+
 
 // server
 app.listen(3000, (err) => {

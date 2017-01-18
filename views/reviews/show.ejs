@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="picture-slideshow">
+    <img src="" alt="">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-7"><!-- Location Information-->
+    <div class="reviews"><!-- User Reviews-->
+      <h1><%= review.title %></h1>
+      <h2>By: <%= review._author.local.name %></h2>
+        <p><%= review.body %></p>
+      <form action="/reviews/<%= reviews._id %>?_method=DELETE" method="post">
+        <button type="submit">Delete</button>
+      </form>
+      <form class="" action="/reviews/<%= reviews._id %>/comments" method="post">
+        <textarea class="form-control" name="body" rows="8" placeholder="Add a comment"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <ul class="list-group">
+        <% review.comments.forEach((c) => { %>
+          <li class="list-group-item"><%= c.body %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-5"><!-- Map-->
+    
+  </div>
+</div>
