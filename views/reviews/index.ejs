@@ -1,0 +1,13 @@
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<h1>Your Reviews:</h1>
+
+<ul class="list-group">
+  <% reviews.forEach((review) => { %>
+    <li class="list-group-item">
+      <a href="/reviews/<%= review._id %>"><%= review.title %></a>
+    </li>
+  <% }) %>
+</ul>
+</div>
+</div>
