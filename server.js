@@ -47,7 +47,7 @@ app.use(ejsLayouts)
 
 
 app.get('/', (req,res) => {
-  res.json({message: "This is the homepage"})
+  res.render('pages/home')
 })
 
 app.use('/', userRoutes)

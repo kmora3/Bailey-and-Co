@@ -26,6 +26,10 @@ userRouter.get('/profile', (req,res) => {
 //   res.redirect('/')
 // })
 
+userRouter.get('/:id', (req,res) => {
+  res.render('pages/location')
+})
+
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) return next()
   req.flash('loginMessage', 'You must be logged in to see that.')
