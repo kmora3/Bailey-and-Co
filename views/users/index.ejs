@@ -1,16 +1,25 @@
+<style media="screen">
+  .user-about{
+    background-color: white;
+  }
+  .avatar{
+    width: 15%;
+  }
+</style>
+
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-    <h2><%= user.local.name %></h2>
-    <div class="well">
-      <ul class="list-group">
-        <% user.reviews.forEach((r) => { %>
-          <li class="list-group-item">
-            <h3>
-              <a href="/location/<%=r._id%>">
-              <%= r. title %></h3>
-          </li>
-        <% }) %>
-      </ul>
-    </div>
+  <div class="user-about well"><!-- User Info-->
+    <img src="/images/dog-no-pic.png" alt="" class="circle avatar">
+    <h1>Jane Doe</h1>
+    <h3>Santa Monica, CA</h3>
+    <h6> Favorites | Reviews</h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3"><!-- User Reviews-->
+
+  </div>
+  <div class="col-lg-9"><!-- User Favorites-->
+
   </div>
 </div>
