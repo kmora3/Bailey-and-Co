@@ -18,7 +18,7 @@ module.exports = {
    * callback: callback(error, response, body)
    */
 function search(searchCriteria) {
-  searchCriteria.term += ' Dog Friendly'
+  searchCriteria.term += ' Dog Allowed'
   console.log(searchCriteria)
   return new Promise((resolve, reject) => {
     request_yelp(searchCriteria, function(err, response, body) {
