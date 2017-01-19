@@ -142,33 +142,23 @@
       <div class="col-lg-12">
         <img src="/images/where2wag.png" alt="Where 2 Wag" class="logo-main center">
         <div class="input-group">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Restaurants</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">Hotels</a></li>
-              <li><a href="#">Activities</a></li>
-              <li><a href="#">Services</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-
           <form action="/"  method="GET">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Restaurants</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Activities</a></li>
+                <li><a href="#">Services</a></li>
+              </ul>
+            </div><!-- /btn-group -->
+            <input name="term" type="text" class="form-control" placeholder="Search Term" />
+            <input name="location" type="text" class="form-control" placeholder="Search for location" />
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">Go!</button>
             </span>
-            <input name="term" type="text" class="form-control" placeholder="Search Term" />
-            <input name="location" type="text" class="form-control" placeholder="Search for location" />
           </form>
-
-          <ul>
-          <% businesses.forEach((b) => { %>
-            <li>
-              <%= b.name %>(<%= b.location.city %>)
-
-            </li>
-          <% }) %>
-          </ul>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row-->
