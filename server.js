@@ -15,6 +15,7 @@ const
   session = require('express-session'),
   MongoDBStore = require('connect-mongodb-session')(session),
   yelp = require('./factories/yelp.js'),
+  yelpLocation = require('./factories/yelpLocation.js'),
   userRoutes = require('./routes/users.js')
 
   mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/bailey-and-co'
@@ -66,14 +67,28 @@ app.get('/', (req,res) => {
   } else {
       res.render('pages/home', {businesses: []})
   }
+})
+//single business search here:
 
+app.get('/location/:id', (req,res) => {
+  if(req.query.id) {
+    yelp.search(req.query).then((body) => {
+      res.render('/pages/location', {location: body.location})
+    })
+
+  } else {
+      res.render('pages/location', {location: []})
+  }
 })
 
-app.get('/restaurants/:location', (req, res) => {
-  yelp.request_yelp({term: 'food', location:req.params.location}, function(error, response, body){
-    res.json(JSON.parse(body))
-  })
-})
+//
+// app.get('/restaurants/:id', (req, res) => {
+//   yelpLocation.request_yelpLocation(':id', function(error, response, body){
+//     res.json(JSON.parse(body))
+//   })
+// })
+
+
 
 app.use('/', userRoutes)
 
