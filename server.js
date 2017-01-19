@@ -33,10 +33,8 @@ const store = new MongoDBStore({
 app.use(logger('dev'))
 app.use(express.static(__dirname + '/public'))
 app.use(cookieParser())
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(bodyParser.json())
 app.use(flash())
 app.use(session({
 	secret: 'boooooooooom',
@@ -44,6 +42,8 @@ app.use(session({
 	resave: true,
 	saveUninitialized: false
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 
 // currentUser:
 app.use((req, res, next) => {

@@ -3,6 +3,15 @@ const
   LocalStrategy = require('passport-local').Strategy,
   User = require('../models/User.js')
 
+// test user
+  // var newUser = new User()
+  // newUser.local.email = "email"
+  // newUser.local.password = newUser.generateHash("password")
+  // newUser.save((err) => {
+  //   console.log("successfully saved user")
+  //   // return done(null, newUser, null)
+  // })
+
 passport.serializeUser((user, done) => {
   done(null, user.id)
 })
@@ -19,8 +28,12 @@ passport.use('local-signup', new LocalStrategy({
   passReqToCallback: true
 }, (req, email, password, done) => {
   User.findOne({'local.email': email}, (err, user) => {
-    if(err) return done(err)
-    if(user) return done(null, false, req.flash('signupMessage', 'That email is taken.'))
+    if(err) {
+      return done(err)
+    }
+    if(user) {
+      return done(null, false, req.flash('signupMessage', 'That email is taken.'))
+    }
     var newUser = new User()
     newUser.local.email = email
     newUser.local.password = newUser.generateHash(password)
