@@ -23,7 +23,7 @@ userRouter.route('/signup')
   }))
 
 userRouter.get('/profile', (req,res) => {
-  res.render('users/show')
+  res.render('users/index')
 })
 
 userRouter.get('/logout', (req, res) => {

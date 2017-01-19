@@ -1,10 +1,20 @@
+<style media="screen">
+  .search-results{
+    padding: 2%;
+  }
+</style>
+
 <h1>Search Results</h1>
 <div class="">
 
       <% businesses.forEach((b) => { %>
-        <div class="row">
-            <a href="/location/<%= b.id %>"><img src="<%= b.image_url %>" alt=""><%= b.name %> (<%= b.location.city %>) </a>
-          </div>
-          <% }) %>
+        <div class="search-results">
+          <a href="/location/<%= b.id %>">
+            <img src="<%= b.image_url %>" alt="">
+            <%= b.name %> (<%= b.location.city %>)
+          </a>
+        </div>
+
+      <% }) %>
 
 </div>
