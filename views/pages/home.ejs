@@ -1,3 +1,4 @@
+<%= businesses %>
 <style media="screen">
   body{
     background-color: rgba(244, 216, 0, 0.51);
@@ -151,10 +152,14 @@
               <li><a href="#">Services</a></li>
             </ul>
           </div><!-- /btn-group -->
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
-          <input type="text" class="form-control" placeholder="Search for...">
+
+          <form action="/" method="GET">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+            <input name="term" type="text" class="form-control" placeholder="Search for..." />
+            <input name="location" type="text" class="form-control" placeholder="Search for..." />
+          </form>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row-->
