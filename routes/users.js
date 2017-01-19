@@ -26,7 +26,11 @@ userRouter.get('/profile', (req,res) => {
 //   res.redirect('/')
 // })
 
-userRouter.get('/:id', (req,res) => {
+userRouter.get('/results', (req,res) => {
+  res.render('pages/search')
+})
+
+userRouter.get('/location/:id', (req,res) => {
   res.render('pages/location')
 })
 
