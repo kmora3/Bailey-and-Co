@@ -4,17 +4,17 @@ const
   userSchema = new mongoose.Schema({
     local: {
       email: {type: String, required: true},
-      username: {type: String, required: true},
-      fName: {type: String, required: true},
-      lName: {type: String, required: true},
+      // username: String, //{type: String, required: true},
+      // fName: String, //{type: String, required: true},
+      // lName: String, //{type: String, required: true},
       password: {type: String, required: true}
     },
-    reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
+    // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
   })
 
-userSchema.pre('findOne', function() {
-  this.populate('reviews')
-})
+// userSchema.pre('findOne', function() {
+//   this.populate('reviews')
+// })
 
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
