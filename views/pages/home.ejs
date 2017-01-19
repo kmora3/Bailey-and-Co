@@ -1,4 +1,4 @@
-<%= businesses %>
+
 <style media="screen">
   body{
     background-color: rgba(244, 216, 0, 0.51);
@@ -153,13 +153,22 @@
             </ul>
           </div><!-- /btn-group -->
 
-          <form action="/" method="GET">
+          <form action="/"  method="GET">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">Go!</button>
             </span>
             <input name="term" type="text" class="form-control" placeholder="Search Term" />
             <input name="location" type="text" class="form-control" placeholder="Search for location" />
           </form>
+
+          <ul>
+          <% businesses.forEach((b) => { %>
+            <li>
+              <%= b.name %>(<%= b.location.city %>)
+
+            </li>
+          <% }) %>
+          </ul>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row-->
