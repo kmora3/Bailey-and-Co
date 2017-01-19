@@ -50,7 +50,7 @@ app.use(ejsLayouts)
 app.get('/', (req,res) => {
   if(req.query.terms || req.query.location) {
     yelp.search(req.query).then((body) => {
-      res.render('pages/search', {businesses: body.businesses})
+      res.render('pages/home', {businesses: body.businesses})
     })
 
   } else {
@@ -58,9 +58,6 @@ app.get('/', (req,res) => {
   }
 
 })
-
-
-
 
 app.get('/restaurants/:location', (req, res) => {
   yelp.request_yelp({term: 'food', location:req.params.location}, function(error, response, body){
