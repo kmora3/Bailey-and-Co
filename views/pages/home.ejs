@@ -162,12 +162,11 @@
           </form>
 
           <ul>
-          <% businesses.forEach((b) => { %>
-            <li>
-              <%= b.name %>(<%= b.location.city %>)
-
-            </li>
-          <% }) %>
+            <% businesses.forEach((b) => { %>
+              <li>
+                <a href="/location/<%= b.id %>"><%= b.name %>(<%= b.location.city %>)</a>
+              </li>
+            <% }) %>
           </ul>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-12 -->
