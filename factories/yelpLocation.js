@@ -18,11 +18,13 @@ module.exports = {
    * callback: callback(error, response, body)
    */
 function search(searchCriteria) {
+  console.log(searchCriteria)
   return new Promise((resolve, reject) => {
     request_yelpLocation(searchCriteria, function(err, response, body) {
       if(err) { reject(err) }
       else {
-        console.log(JSON.parse(body))
+        // console.log(JSON.parse(body))
+        console.log(body)
         resolve(JSON.parse(body))
       }
     })
@@ -31,17 +33,15 @@ function search(searchCriteria) {
 }
 
 function request_yelpLocation(set_parameters, callback) {
-
     /* The type of request */
     var httpMethod = 'GET';
-
+    console.log(set_parameters);
     /* The url we are using for the request */
-    var url = 'http://api.yelp.com/v2/business';
+    var url = 'https://api.yelp.com/v2/business/' + set_parameters.id;
+    set_parameters= {}
 
     /* We can setup default parameters here */
     var default_parameters = {
-      location: 'San+Francisco',
-      sort: '0'
     };
 
     /* We set the require parameters here */
@@ -56,7 +56,7 @@ function request_yelpLocation(set_parameters, callback) {
 
     /* We combine all the parameters in order of importance */
     var parameters = _.assign(default_parameters, set_parameters, required_parameters);
-    console.log(parameters)
+    // console.log(parameters)
 
     /* We set our secrets here */
     var consumerSecret = 'F6HihP9-nraPqb9bW-nIb9Z4IMM'
@@ -74,6 +74,7 @@ function request_yelpLocation(set_parameters, callback) {
 
     /* Add the query string to the url */
     var apiURL = url+'?'+paramURL;
+    console.log(apiURL)
 
     /* Then we use request to send make the API Request */
     request(apiURL, function(error, response, body){

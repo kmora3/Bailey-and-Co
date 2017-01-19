@@ -58,6 +58,8 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
+//Yelp-Api Search request
+
 app.get('/', (req,res) => {
   if(req.query.terms || req.query.location) {
     yelp.search(req.query).then((body) => {
@@ -68,16 +70,19 @@ app.get('/', (req,res) => {
       res.render('pages/home', {businesses: []})
   }
 })
-//single business search here:
+//Yelp-Api Single Business Lookup request
 
 app.get('/location/:id', (req,res) => {
-  if(req.query.id) {
-    yelp.search(req.query).then((body) => {
-      res.render('/pages/location', {location: body.location})
+  if(req.params.id) {
+    yelpLocation.search({id: req.params.id}).then((body) => {
+      console.log("message:I got this back")
+      res.json(body)
+      // res.render('/pages/location', {location: body.location})
     })
 
   } else {
-      res.render('pages/location', {location: []})
+      console.log('something went wrong in location')
+      // res.render('pages/location', {location: []})
   }
 })
 
@@ -87,6 +92,7 @@ app.get('/location/:id', (req,res) => {
 //     res.json(JSON.parse(body))
 //   })
 // })
+
 
 
 

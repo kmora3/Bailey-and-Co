@@ -26,8 +26,7 @@
     "oauth-signature": "^1.3.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "request": "^2.79.0",
-    "yelp": "^1.0.2"
+    "request": "^2.79.0"
   },
   "devDependencies": {},
   "repository": {
