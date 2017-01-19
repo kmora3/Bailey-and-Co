@@ -75,7 +75,7 @@ app.get('/', (req,res) => {
 app.get('/location/:id', (req,res) => {
   if(req.params.id) {
     yelpLocation.search({id: req.params.id}).then((body) => {
-      console.log("message:I got this back")
+      console.log(body)
       // res.render(JSON.parse(body))
       res.render('pages/location', {location: body})
     })
