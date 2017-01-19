@@ -5,6 +5,7 @@ const
   logger = require('morgan'),
   methodOverride = require('method-override'),
   passport = require('passport'),
+  passportConfig = require('./config/passport.js'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
   flash = require('connect-flash'),
@@ -34,6 +35,15 @@ app.use(express.static(__dirname + '/public'))
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+app.use(session({
+	secret: 'boooooooooom',
+	cookie: {maxAge: 60000000},
+	resave: true,
+	saveUninitialized: false
+}))
 
 // currentUser:
 app.use((req, res, next) => {
