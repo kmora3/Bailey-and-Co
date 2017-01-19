@@ -18,11 +18,13 @@ module.exports = {
    * callback: callback(error, response, body)
    */
 function search(searchCriteria) {
+  searchCriteria.term += ' Dog Friendly'
+  console.log(searchCriteria)
   return new Promise((resolve, reject) => {
     request_yelp(searchCriteria, function(err, response, body) {
       if(err) { reject(err) }
       else {
-        console.log(JSON.parse(body))
+        // console.log(JSON.parse(body))
         resolve(JSON.parse(body))
       }
     })
