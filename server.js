@@ -59,9 +59,6 @@ app.get('/', (req,res) => {
 
 })
 
-
-
-
 app.get('/restaurants/:location', (req, res) => {
   yelp.request_yelp({term: 'food', location:req.params.location}, function(error, response, body){
     res.json(JSON.parse(body))
