@@ -54,7 +54,7 @@ app.get('/', (req,res) => {
     })
 
   } else {
-      res.render('pages/home', {businesses: "nothing"})
+      res.render('pages/home', {businesses: []})
   }
 
 })
