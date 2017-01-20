@@ -11,6 +11,14 @@
   border-color: transparent !important;
 }
 
+.profile-name {
+  font-size: 22px;
+}
+
+.snoopy {
+  font-size: 22px;
+}
+
 </style>
 
 <nav class="navbar navbar-default">
@@ -27,31 +35,26 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-nav">
-      <ul class="nav navbar-nav">
-          <li class="menu-color"><a href="/hotels">Hotels<span class="sr-only">(current)</span></a></li>
-          <li class="menu-color"><a href="/restaurants">Restaurants<span class="sr-only">(current)</span></a></li>
-          <!-- <li><a href="/about">Activities<span class="sr-only">(current)</span></a></li> -->
-          <li class="menu-color"><a href="/events">Events<span class="sr-only">(current)</span></a></li>
-          <li class="menu-color"><a href="/services">Services<span class="sr-only">(current)</span></a></li>
-          <!-- <li class="menu-color"><a href="/users">More<span class="sr-only">(current)</span></a></li> -->
-      </ul>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if(loggedIn) { %>
             <!-- <li><a href="/users">Users</a></li>
             <li><a href="/posts">Posts</a></li> -->
+
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="dropdown-toggle profile-name" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= currentUser.local.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/profile">Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/profile/edit">Edit Profile</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/logout">Logout</a></li>
               </ul>
             </li>
           <% } else { %>
-            <li><a href="/login">Log In</a></li>
-            <li><a href="/signup">Sign Up</a></li>
+            <li class="snoopy"><a href="/login">Log In</a></li>
+            <li class="snoopy"><a href="/signup">Sign Up</a></li>
           <% } %>
         </ul>
       </div>
