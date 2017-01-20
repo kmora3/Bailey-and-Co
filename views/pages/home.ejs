@@ -61,7 +61,7 @@
           <form action="/"  method="GET">
             <!-- <input name="term" type="text" class="form-control" placeholder="Search Term"> -->
               <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select a Category <span class="caret"></span></button>
+                <button name="term" type="button" class="selected-category btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select a Category <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><a href="#">Beaches</a></li>
                   <li><a href="#">Restaurants</a></li>
@@ -78,3 +78,11 @@
         </div><!--End Search Bar -->
       </div><!-- /.col-lg-12 -->
     </div><!-- /.row-->
+
+
+    <script type="text/javascript">
+      $('.dropdown-menu li a').click(function(){
+        $(".selected-category").text($(this).text());
+        $(".selected-category").val($(this).text());
+      })
+    </script>
