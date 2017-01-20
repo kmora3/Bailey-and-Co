@@ -84,20 +84,15 @@ app.use(ejsLayouts)
 // })
 
 app.post('/location/:id', (req, res) => {
-    var newReview = new Review()
-    newReview.body = req.body.body
-    newReview.rating = req.body.rating
-    newReview.author = req.body.author
-
-    newReview.save(function (err, review){
-      if(err){
-        res.send('Cant Save Review')
-      }else{
-        console.log(review)
-        res.json(review)
-            }
-          })
-      })
+    var newReview = new Review(req.body)
+    newReview.yelp_id = req.params.id
+    newReview._author = req.user
+    newReview.save((err,review) => {
+      if(err) return console.log(err)
+      console.log(review);
+      res.redirect('/location/' + req.params.id)
+    })
+})
 
 
 app.use('/', userRoutes)
