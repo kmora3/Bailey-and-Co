@@ -16,7 +16,10 @@ const
   MongoDBStore = require('connect-mongodb-session')(session),
   yelp = require('./factories/yelp.js'),
   yelpLocation = require('./factories/yelpLocation.js'),
-  userRoutes = require('./routes/users.js')
+  userRoutes = require('./routes/users.js'),
+  Review = require('./models/Review.js')
+
+
 
   mongoConnectionString = process.env.MONGODB_URL || 'mongodb://localhost/bailey-and-co'
 
@@ -79,7 +82,11 @@ app.use(ejsLayouts)
 //   })
 // })
 
-
+app.post('/location/:id', (req, res) => {
+    Review.create(req.body, (err, review) => {
+    console.log(review)
+  })
+})
 
 
 app.use('/', userRoutes)
