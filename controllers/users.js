@@ -16,7 +16,8 @@ module.exports = {
   logout,
   results,
   search,
-  singleSearch
+  singleSearch,
+  newReview
 }
 
 function login(req,res){
@@ -75,4 +76,14 @@ function singleSearch(req,res){
   } else {
       res.render('pages/location', {location: []})
   }
+}
+
+function newReview(req,res){
+  var newReview = new Review(req.body)
+  newReview.yelp_id = req.params.id
+  newReview._author = req.user
+  newReview.save((err,review) => {
+    if(err) return console.log(err)
+    res.redirect('/location/' + req.params.id)
+  })
 }
