@@ -8,11 +8,12 @@ const
     body: {type: String, required: true},
     rating: {type: Number, default: null},
     comments: [commentSchema],
-    _author: {type: mongoose.Schema.Type.ObjectId, ref: 'User'}
+    _author: {type: mongoose.Schema.ObjectId, ref: 'User'}
   }, {timestamps: true})
 
   reviewSchema.pre('findOne', function() {
     this.populate('_author')
   })
 
-module.exports = mongoose.model('Review', reviewSchema)
+var Review = mongoose.model('Review', reviewSchema)
+module.exports = Review
