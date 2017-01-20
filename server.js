@@ -60,31 +60,10 @@ app.use(ejsLayouts)
 
 //Yelp-Api Search request
 
-app.get('/', (req,res) => {
-  if(req.query.terms || req.query.location) {
-    yelp.search(req.query).then((body) => {
-      res.render('pages/search', {businesses: body.businesses})
-    })
 
-  } else {
-      res.render('pages/home', {businesses: []})
-  }
-})
 //Yelp-Api Single Business Lookup request
 
-app.get('/location/:id', (req,res) => {
-  if(req.params.id) {
-    yelpLocation.search({id: req.params.id}).then((body) => {
-      console.log(body)
-      // res.render(JSON.parse(body))
-      res.render('pages/location', {location: body})
-    })
 
-  } else {
-      console.log('something went wrong in location')
-      // res.render('pages/location', {location: []})
-  }
-})
 
 // app.post('/location/:id', (req, res) => {
 //     Review.create(req.body, (err, review) => {
