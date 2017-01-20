@@ -16,7 +16,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="..." alt="...">
+        <img src="<%= location.image_url %>" alt="...">
         <div class="carousel-caption">
           ...
         </div>
@@ -47,6 +47,7 @@
     <div class="well">
       <h1><%= location.name %></h1>
       <h2>About <%= location.name %></h2>
+      <p><%= location.name %> is located in the <%= location.location.neighborhoods %> area of <%= location.location.city %>. </p>
     </div>
     <div class="well">
       <h2>Reviews</h2>
