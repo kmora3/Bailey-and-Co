@@ -12,6 +12,7 @@ userRouter.route('/')
 
 userRouter.route('/location/:id')
   .get(userController.singleSearch)
+  .post(userController.newReview)
 
 userRouter.route('/login')
   .get(userController.login)

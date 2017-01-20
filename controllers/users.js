@@ -3,7 +3,9 @@ const
   yelp = require('../factories/yelp.js'),
   yelpLocation = require('../factories/yelpLocation.js'),
   passport = require('passport'),
-  passportConfig = require('../config/passport.js')
+  passportConfig = require('../config/passport.js'),
+  Review = require('../models/Review.js')
+
 
 module.exports = {
   login,
@@ -14,7 +16,8 @@ module.exports = {
   logout,
   results,
   search,
-  singleSearch
+  singleSearch,
+  newReview
 }
 
 function login(req,res){
@@ -64,9 +67,23 @@ function search(req,res){
 function singleSearch(req,res){
   if(req.params.id) {
     yelpLocation.search({id: req.params.id}).then((body) => {
-      res.render('pages/location', {location: body})
+      Review.find({yelp_id: req.params.id}, (err, reviews) => {
+        if(err) return console.log(err)
+        res.render('pages/location', {location: body, reviews})
+      })
+
     })
   } else {
       res.render('pages/location', {location: []})
   }
+}
+
+function newReview(req,res){
+  var newReview = new Review(req.body)
+  newReview.yelp_id = req.params.id
+  newReview._author = req.user
+  newReview.save((err,review) => {
+    if(err) return console.log(err)
+    res.redirect('/location/' + req.params.id)
+  })
 }

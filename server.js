@@ -30,7 +30,8 @@ mongoose.connect(mongoConnectionString, (err) => {
 
 const store = new MongoDBStore({
   uri: mongoConnectionString,
-  collection: 'sessions'
+  collection: 'sessions',
+  collection: 'reviews'
 });
 
 // middleware
@@ -83,9 +84,14 @@ app.use(ejsLayouts)
 // })
 
 app.post('/location/:id', (req, res) => {
-    Review.create(req.body, (err, review) => {
-    console.log(review)
-  })
+    var newReview = new Review(req.body)
+    newReview.yelp_id = req.params.id
+    newReview._author = req.user
+    newReview.save((err,review) => {
+      if(err) return console.log(err)
+      console.log(review);
+      res.redirect('/location/' + req.params.id)
+    })
 })
 
 
