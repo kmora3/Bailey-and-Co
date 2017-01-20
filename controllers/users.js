@@ -1,7 +1,9 @@
 const
   User = require('../models/User.js'),
   yelp = require('../factories/yelp.js'),
-  yelpLocation = require('../factories/yelpLocation.js')
+  yelpLocation = require('../factories/yelpLocation.js'),
+  passport = require('passport'),
+  passportConfig = require('../config/passport.js')
 
 module.exports = {
   login,
@@ -15,12 +17,12 @@ module.exports = {
   singleSearch
 }
 
-function login(){
-  res.render('/login')
+function login(req,res){
+  res.render('login')
 }
 
-function localLogin(req,res){
-  passport.authenticate('local-login', {
+function localLogin(){
+  return passport.authenticate('local-login', {
     successRedirect: '/profile',
     failureRedirect: '/login'
   })
@@ -30,8 +32,8 @@ function signup(req,res){
   res.render('signup')
 }
 
-function localSignup(req,res){
-  passport.authenticate('local-signup', {
+function localSignup(){
+  return passport.authenticate('local-signup', {
     successRedirect: '/profile',
     failureRedirect: '/signup'
   })

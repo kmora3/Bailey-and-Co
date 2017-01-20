@@ -15,11 +15,11 @@ userRouter.route('/location/:id')
 
 userRouter.route('/login')
   .get(userController.login)
-  .post(userController.localLogin)
+  .post(userController.localLogin())
 
 userRouter.route('/signup')
   .get(userController.signup)
-  .post(userController.localSignup)
+  .post(userController.localSignup())
 
 userRouter.route('/profile')
   .get(userController.profile)

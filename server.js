@@ -79,9 +79,6 @@ app.use(ejsLayouts)
 //   })
 // })
 
-
-
-
 app.use('/', userRoutes)
 
 
