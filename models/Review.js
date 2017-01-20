@@ -4,7 +4,8 @@ const
     body: {type: String}
   }),
   reviewSchema = new mongoose.Schema({
-    title: {type: String, required: true},
+    // title: {type: String, required: true},
+    yelp_id: {type: String, required: true},
     body: {type: String, required: true},
     rating: {type: Number, default: null},
     comments: [commentSchema],
