@@ -35,6 +35,11 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-nav">
+
+      <ul class="nav navbar-nav navbar-right sign-up-padding">
+        <% if(loggedIn) { %>
+        <a href="/profile" class="dropdown-toggle top-padding" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= currentUser.local.email %><span class="caret"></span></a>
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if(loggedIn) { %>
@@ -49,6 +54,7 @@
                 <li><a href="/logout">Logout</a></li>
               </ul>
             </li>
+
           <% } else { %>
             <li class="snoopy"><a href="/login">Log In</a></li>
             <li class="snoopy"><a href="/signup">Sign Up</a></li>
