@@ -97,8 +97,13 @@
       <h4><%= location.display_phone %></h4>
     </div>
     <div class="well">
-      <h2>Map</h2
-
+      <h2 id="map">Map</h2>
+      <iframe width="300" height="170" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?q=<%= location.location.coordinate.latitude %>,<%= location.location.coordinate.longitude %>&output=embed" style="color:#0000FF;text-align:left" target="_blank">See map bigger</a></small>
     </div>
   </div>
 </div>
+
+
+
+
+<script type="text/javascript">
