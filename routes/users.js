@@ -2,42 +2,33 @@ const
   express = require('express'),
   passport = require('passport'),
   userRouter = express.Router(),
-  User = require('../models/User.js')
+  yelp = require('../factories/yelp.js'),
+  yelpLocation = require('../factories/yelpLocation.js'),
+  User = require('../models/User.js'),
+  userController = require('../controllers/users.js')
+
+userRouter.route('/')
+  .get(userController.search)
+
+userRouter.route('/location/:id')
+  .get(userController.singleSearch)
 
 userRouter.route('/login')
-  .get((req,res) => {
-    res.render('login')
-  })
-  .post(passport.authenticate('local-login', {
-    successRedirect: '/profile',
-    failureRedirect: '/login'
-  }))
+  .get(userController.login)
+  .post(userController.localLogin)
 
 userRouter.route('/signup')
-  .get((req,res) => {
-    res.render('signup')
-  })
-  .post(passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/signup'
-  }))
+  .get(userController.signup)
+  .post(userController.localSignup)
 
-userRouter.get('/profile', (req,res) => {
-  res.render('users/index')
-})
+userRouter.route('/profile')
+  .get(userController.profile)
 
-userRouter.get('/logout', (req, res) => {
-  req.logout()
-  res.redirect('/')
-})
+userRouter.route('/logout')
+  .get(userController.logout)
 
-userRouter.get('/results', (req,res) => {
-  res.render('pages/search')
-})
-
-userRouter.get('/location/:id', (req,res) => {
-  res.render('pages/location')
-})
+userRouter.route('/results')
+  .get(userController.results)
 
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) return next()
