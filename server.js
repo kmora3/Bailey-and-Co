@@ -86,6 +86,13 @@ app.get('/location/:id', (req,res) => {
   }
 })
 
+// app.post('/location/:id', (req, res) => {
+//     Review.create(req.body, (err, review) => {
+//       if(err) return console.log(err)
+//       res.json(body)
+//   })
+
+
 //
 // app.get('/restaurants/:id', (req, res) => {
 //   yelpLocation.request_yelpLocation(':id', function(error, response, body){
