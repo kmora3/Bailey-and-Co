@@ -9,7 +9,7 @@ const
       // lName: String, //{type: String, required: true},
       password: {type: String, required: true},
       name: {type: String, required: true},
-      city: {type: String, required: true}
+      city: String
     },
     // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
   })
