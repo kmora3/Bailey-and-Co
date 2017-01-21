@@ -58,30 +58,21 @@
         <th>Rating</th>
       </tr>
     </thead>
+      <% for(var i=0; i<reviews.length; i++) { %>
     <tbody>
-      <%= reviews %>
-      <tr>
-        <th scope="row">Marky_Mark</th>
-        <td>This place is awesome!</td>
-        <td>*****</td>
-      </tr>
-      <tr>
-        <th scope="row">TommyDumass</th>
-        <td>It aite..:/</td>
-        <td>***</td>
-      </tr>
-      <tr>
-        <th scope="row">IP_Freely</th>
-        <td>Sucks...my dog hated it</td>
-        <td>*</td>
-      </tr>
+        <tr>
+          <th scope="row"><%= reviews[i]._author %></th>
+          <td><%= reviews[i].body %></td>
+          <td>*****</td>
+          <% } %>
+        </tr>
     </tbody>
   </table>
     <div class="form-group row">
-      <form action="#" method="post">
-      <label for="example-text-input" class="col-2 col-form-label"></label>
-      <div class="col-10">
-        <input class="form-control" type="text" placeholder="Write a Review"id="example-text-input">
+      <form action="/location/<%= location.id %>" method="post">
+      <div class="form-group">
+          <label>Add Review</label>
+          <textarea rows="6" class="form-control" name="body"></textarea>
       </div>
     </div>
     <button type="submit" name="button" class="btn btn-success">Submit Review</button>
@@ -97,8 +88,10 @@
       <h4><%= location.display_phone %></h4>
     </div>
     <div class="well">
+
       <h2 id="map">Map</h2>
       <iframe width="300" height="170" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?q=<%= location.location.coordinate.latitude %>,<%= location.location.coordinate.longitude %>&output=embed" style="color:#0000FF;text-align:left" target="_blank">See map bigger</a></small>
+
     </div>
   </div>
 </div>
