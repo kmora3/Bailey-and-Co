@@ -24,6 +24,11 @@ userRouter.route('/signup')
 
 userRouter.route('/profile')
   .get(userController.profile)
+  .post(userController.destroy)
+
+userRouter.route('/profile/edit')
+  .get(userController.edit)
+  .post(userController.editProfile)
 
 userRouter.route('/logout')
   .get(userController.logout)
