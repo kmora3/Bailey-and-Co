@@ -1,0 +1,7 @@
+<form action="/profile/edit?_method=PATCH" method="post">
+  <div class="form-group">
+    <label><%= currentUser.local.name %></label>
+    <input type="text" name="name" value="<%= currentUser.local.name %>" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-info btn-lg">Submit</button>
+</form>
