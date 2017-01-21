@@ -38,6 +38,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if(loggedIn) { %>
+            <!-- <li><a href="/users">Users</a></li>
+            <li><a href="/posts">Posts</a></li> -->
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle profile-name" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= currentUser.local.name %> <span class="caret"></span></a>
