@@ -17,7 +17,30 @@ module.exports = {
   results,
   search,
   singleSearch,
-  newReview
+  newReview,
+  edit,
+  editProfile,
+  destroy
+}
+
+function edit(req,res){
+  res.render('users/edit')
+}
+
+function editProfile(req,res){
+  User.findById(req.user._id, (err,user) => {
+    console.log("user local before:")
+    console.log(user.local)
+    user.local = Object.assign({}, user.local, req.body)
+    console.log("user local after:")
+    console.log(user.local)
+    user.save((err, user) => {
+      if (err) throw err
+      console.log("Updated user:")
+      console.log(user);
+      res.redirect('/profile')
+    })
+  })
 }
 
 function login(req,res){
@@ -85,5 +108,14 @@ function newReview(req,res){
   newReview.save((err,review) => {
     if(err) return console.log(err)
     res.redirect('/location/' + req.params.id)
+  })
+}
+
+function destroy(req,res){
+  console.log("User being deleted")
+  console.log(req.user._id)
+  User.findByIdAndRemove(req.user._id, (err) => {
+    if (err) throw err
+    res.redirect('/')
   })
 }
