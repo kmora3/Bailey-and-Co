@@ -1,4 +1,3 @@
-
 <style media="screen">
   body{
     background-color: rgba(255, 255, 255, 0.51);
@@ -9,18 +8,18 @@
   }
 
   .navbar-default {
-     background-color:transparent !important;
-     border-color:transparent;
-     background-image:none;
-     box-shadow:none;
+     background-color: transparent !important;
+     border-color: transparent;
+     background-image: none;
+     box-shadow: none;
   }
 
-  .navbar-default .navbar-nav>li> .white {
-    color: #white !important;
+  /*.navbar-default .navbar-nav>li> .white {
+    color: #ffffff !important;
   }
   .navbar-default .navbar-nav>li>a {
-    color: #white !important;
-  }
+    color: #ffffff !important;
+  }*/
 
   .navbar-default .navbar-brand {
       color: #ffffff;
@@ -43,7 +42,7 @@
     width: 75%;
     margin: 0 auto;
     display: block;
-    margin-top: 13%;
+    /*margin-top: 13%;*/
   }
 
   .search-bar{
@@ -57,29 +56,25 @@
       display: inherit !important;
   }
 
-  .container-fluid {
+  /*.container-fluid {
     margin-bottom: 9% !important;
-  }
+  }*/
 
-  .jumbotron {
-    width: 100%;
-    position: absolute !important;
-    background: url('/images/dog-pic-1.jpg') no-repeat center center fixed;
-    background-position: center top;
-    background-size: auto 100%;
-    z-index: -10;
-    height: 75%;
-    margin-top: -88px;
-}
-  .margin-top{
+  .jumbotron{
+    background: url('/images/dog-pic-1.jpg');
+    background-attachment: fixed;
+    min-heigh: 400px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
+  /*.margin-top{
     margin-top: 12%;
-  }
+  }*/
 </style>
-<div class="jumbotron">
-</div>
-  <div class="container">
-    <img src="/images/where2wag-white.png" alt="Where 2 Wag" class="logo-main center">
 
+<div class="row">
+  <div class="col-md-12 jumbotron">
+    <img src="/images/where2wag-white.png" alt="Where 2 Wag" class="logo-main center">
     <div class="input-group search-bar"><!--Search Bar -->
       <form action="/"  method="GET" class="form-inline">
           <div class="form-group">
@@ -97,6 +92,8 @@
       </form>
     </div><!--End Search Bar -->
   </div>
+</div>
+
 <div class="clearfix margin-top">
   <h3 class="text-center">Find the perfect place to hang out with your best friend!</h3>
 </div>
