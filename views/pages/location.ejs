@@ -6,7 +6,11 @@
       RW.init({
           huid: "345869",
           uid: "72693b4b5ccdd36530431597e9ada0f7",
-          options: { "style": "oxygen" }
+          options: {
+                  "size": "large",
+                  "style": "oxygen",
+                  "isDummy": false
+              } 
       });
       RW.render();
   };
@@ -87,6 +91,7 @@
     <tbody>
         <tr>
           <th scope="row"><%= reviews[i]._author %></th>
+          <td><%= reviews[i]._author %></td>
           <td><%= reviews[i].body %></td>
           <% } %>
         </tr>
