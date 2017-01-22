@@ -14,9 +14,9 @@ const
     // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
   })
 
-// userSchema.pre('findOne', function() {
-//   this.populate('reviews')
-// })
+userSchema.pre('findOne', function() {
+  this.populate('reviews')
+})
 
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10))

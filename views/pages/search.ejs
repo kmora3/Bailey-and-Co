@@ -2,14 +2,8 @@
   .search-results{
     padding: 2%;
   }
-  .search-info{
-    border-radius: 25px;
-  }
-  .search-map{
-    border-radius: 25px;
-  }
 </style>
-<div class="col-lg-8 well search-info">
+<div class="col-lg-8 well border-radius">
   <h1 class="text-center">Search Results</h1>
       <% businesses.forEach((b) => { %>
         <div class="search-results">
@@ -21,6 +15,6 @@
 
       <% }) %>
 </div>
-<div class="col-lg-4 well search-map">
+<div class="col-lg-4 well border-radius">
   <h1 class="text-center">Map it!</h1>
 </div>

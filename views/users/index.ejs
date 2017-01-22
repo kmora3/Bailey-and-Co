@@ -1,7 +1,4 @@
 <style media="screen">
-  .user-about{
-    background-color: white;
-  }
   .avatar{
     width: 82%;
   }
@@ -18,8 +15,9 @@
     margin-top: 3%;
   }
 </style>
+<div class="container">
 <div class="row">
-  <div class="user-about well"><!-- User Info-->
+  <div class="well border-radius"><!-- User Info-->
     <div class="user-pic">
       <img src="/images/dog-no-pic.png" alt="" class="circle avatar">
     </div>
@@ -31,14 +29,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-3 well"><!-- User Reviews-->
+  <div class="col-lg-3 well border-radius"><!-- User Reviews-->
     <h2>Reviews</h2>
   </div>
-  <div class="col-lg-9 well"><!-- User Favorites-->
+  <div class="col-lg-9 well border-radius"><!-- User Favorites-->
     <h2>Favorites</h2>
   </div>
 </div>
-
-<form action="/profile?_method=DELETE" method="post">
-  <button type="submit" class="btn btn-info btn-lg">Delete Account</button>
-</form>
+</div>
