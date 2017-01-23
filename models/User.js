@@ -11,7 +11,7 @@ const
       name: {type: String, required: true},
       city: String
     },
-    // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
+    reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
   })
 
 userSchema.pre('findOne', function() {
