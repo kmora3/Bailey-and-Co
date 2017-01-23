@@ -24,13 +24,19 @@
     <div class="user-info">
       <h1 class="user-name"><%= currentUser.local.name %></h1>
       <h3 class="user-city"><%= currentUser.local.city %></h3>
-      <h6> Favorites | Reviews</h6>
+      <h6> Favorites | Reviews: <%= reviews.length %></h6>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-3 well border-radius"><!-- User Reviews-->
-    <h2>Reviews</h2>
+    <h2>Review:</h2>
+    <ul>
+      <% reviews.forEach((r) => { %>
+        <li> <%= r.body %> </li>
+      <% }) %>
+    </ul>
+
   </div>
   <div class="col-lg-9 well border-radius"><!-- User Favorites-->
     <h2>Favorites</h2>

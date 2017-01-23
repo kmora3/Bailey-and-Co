@@ -66,7 +66,10 @@ function localSignup(){
 }
 
 function profile(req,res){
-  res.render('users/index')
+  User.findById(req.user._id, (err,user) => {
+    console.log(user)
+    res.render('users/index', {reviews: user.reviews})
+  })
 }
 
 function logout(req,res){
@@ -106,6 +109,8 @@ function newReview(req,res){
   newReview.yelp_id = req.params.id
   newReview._author = req.user
   newReview.save((err,review) => {
+    req.user.reviews.push(review)
+    req.user.save()
     if(err) return console.log(err)
     console.log(review[0])
     res.redirect('/location/' + req.params.id)
