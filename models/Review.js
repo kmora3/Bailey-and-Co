@@ -16,5 +16,9 @@ const
     this.populate('_author')
   })
 
+  reviewSchema.pre('find', function() {
+    this.populate('_author')
+  })
+
 var Review = mongoose.model('Review', reviewSchema)
 module.exports = Review

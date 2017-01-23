@@ -52,7 +52,7 @@
       <% for(var i=0; i<reviews.length; i++) { %>
     <tbody>
         <tr>
-          <th scope="row"><%= currentUser.local.name %></th>
+          <th scope="row"><%= reviews[i]._author.local.name %></th>
           <td><%= reviews[i].body %></td>
           <% } %>
         </tr>
