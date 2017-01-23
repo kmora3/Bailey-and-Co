@@ -107,6 +107,7 @@ function newReview(req,res){
   newReview._author = req.user
   newReview.save((err,review) => {
     if(err) return console.log(err)
+    console.log(review[0])
     res.redirect('/location/' + req.params.id)
   })
 }
