@@ -2,10 +2,10 @@
   <form action="/profile/edit?_method=PATCH" method="post">
     <div class="form-group">
       <h3>Hi <%= currentUser.local.name %>! What do you want to edit?</h3>
-      <input type="text" name="name" value="<%= currentUser.local.name %>" class="form-control">
+      <h6>Name</h6><input type="text" name="name" value="<%= currentUser.local.name %>" class="form-control">
     </div>
     <div class="form-group">
-      <input type="text" name="city" value="<%= currentUser.local.city %>" class="form-control">
+      <h6>City</h6><input type="text" name="city" value="<%= currentUser.local.city %>" class="form-control">
     </div>
     <button type="submit" class="btn btn-info btn-sm">Submit</button>
   </form>
