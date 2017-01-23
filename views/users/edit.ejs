@@ -1,20 +1,20 @@
 <div class="container">
   <form action="/profile/edit?_method=PATCH" method="post">
-    <div class="form-group">
+    <div class="form-group border-radius">
       <h3>Hi <%= currentUser.local.name %>! What do you want to edit?</h3>
-      <h6>Name</h6><input type="text" name="name" value="<%= currentUser.local.name %>" class="form-control">
+      <h6>Name</h6><input type="text" name="name" value="<%= currentUser.local.name %>" class="form-control border-radius">
     </div>
-    <div class="form-group">
-      <h6>City</h6><input type="text" name="city" value="<%= currentUser.local.city %>" class="form-control">
+    <div class="form-group border-radius">
+      <h6>City</h6><input type="text" name="city" value="<%= currentUser.local.city %>" class="form-control border-radius">
     </div>
-    <div class="form-group">
-      <h6>E-mail</h6><input type="text" name="email" value="<%= currentUser.local.email %>" class="form-control">
+    <div class="form-group border-radius">
+      <h6>E-mail</h6><input type="text" name="email" value="<%= currentUser.local.email %>" class="form-control border-radius">
     </div>
-    <button type="submit" class="btn btn-info btn-sm">Submit</button>
+    <button type="submit" class="btn btn-info btn-sm border-radius">Submit</button>
   </form>
   <hr>
   <h3>What to delete your account? We'll be sad to see you go!</h3>
   <form action="/profile?_method=DELETE" method="post">
-    <button type="submit" class="btn btn-info btn-sm btn-danger">Delete Account</button>
+    <button type="submit" class="btn btn-info btn-sm btn-danger border-radius">Delete Account</button>
   </form>
 </div>
