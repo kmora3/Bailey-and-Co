@@ -62,39 +62,6 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
-//Yelp-Api Search request
-
-
-//Yelp-Api Single Business Lookup request
-
-
-
-// app.post('/location/:id', (req, res) => {
-//     Review.create(req.body, (err, review) => {
-//       if(err) return console.log(err)
-//       res.json(body)
-//   })
-
-
-//
-// app.get('/restaurants/:id', (req, res) => {
-//   yelpLocation.request_yelpLocation(':id', function(error, response, body){
-//     res.json(JSON.parse(body))
-//   })
-// })
-
-app.post('/location/:id', (req, res) => {
-    var newReview = new Review(req.body)
-    newReview.yelp_id = req.params.id
-    newReview._author = req.user
-    newReview.save((err,review) => {
-      if(err) return console.log(err)
-      console.log(review);
-      res.redirect('/location/' + req.params.id)
-    })
-})
-
-
 app.use('/', userRoutes)
 
 
