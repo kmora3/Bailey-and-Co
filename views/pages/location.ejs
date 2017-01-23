@@ -10,7 +10,7 @@
                   "size": "large",
                   "style": "oxygen",
                   "isDummy": false
-              } 
+              }
       });
       RW.render();
   };
@@ -52,8 +52,7 @@
       <% for(var i=0; i<reviews.length; i++) { %>
     <tbody>
         <tr>
-          <th scope="row"><%= reviews[i]._author %></th>
-          <td><%= reviews[i]._author %></td>
+          <th scope="row"><%= currentUser.local.name %></th>
           <td><%= reviews[i].body %></td>
           <% } %>
         </tr>
