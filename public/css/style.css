@@ -51,6 +51,7 @@ footer{
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.51);
   text-align: center;
+  z-index: -1;
 }
 
 /*.footer {

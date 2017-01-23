@@ -46,10 +46,12 @@
   }
 
   .search-bar{
-    display: inline-block !important;
+    /*display: inline-block !important;*/
     /*margin: auto;*/
     /*width: 100%;*/
     /*margin-top: 3%;*/
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
   /*.input-group-btn {
@@ -77,6 +79,9 @@
   .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child) {
     border-radius: 5px !important;
 }
+#selectUser {
+  width:auto;
+}
 
 </style>
 
@@ -86,19 +91,15 @@
       <img src="/images/where2wag-white.png" alt="Where 2 Wag" class="logo-main center">
         <form action="/"  method="GET" class="form-hornizontal search-bar">
           <div class="input-group search-bar"><!--Search Bar -->
-            <div class="form-group col-md-5">
-              <select class="form-control" name="term">
+              <select class="form-control" id="selectUser" name="term">
                 <option value="bars">Bars</option>
                 <option value="beaches">Beaches</option>
                 <option value="hotels">Hotels</option>
                 <option value="parks">Parks</option>
                 <option value="restaurants">Restaurants</option>
               </select>
-            </div>
-              <input name="location" type="text" class="form-control col-md-6" placeholder="Search for location">
-            <span class="input-group-btn col-sm-1">
-              <button class="btn btn-default" type="submit">Go!</button>
-            </span>
+              <input name="location" type="text" class="form-control" id="selectUser" style="width:auto;" class="form-control selectWidth" placeholder="Search for location">
+              <button class="btn btn-default border-radius"  type="submit">Go!</button>
             </div><!--End Search Bar -->
         </form>
 
