@@ -29,10 +29,10 @@
     color: #ffffff;
   }
 
-  form {
+  /*form {
     /*display: inline-block !important;*/
-    width: 100%;
-  }
+    /*width: 100%;*/
+  /*}*/
 
   .pic-menu{
     margin-top: 10%;
@@ -48,13 +48,13 @@
   .search-bar{
     display: inline-block !important;
     /*margin: auto;*/
-    width: 100%;
-    margin-top: 3%;
+    /*width: 100%;*/
+    /*margin-top: 3%;*/
   }
 
-  .input-group-btn {
+  /*.input-group-btn {
       display: inherit !important;
-  }
+  }*/
 
   /*.container-fluid {
     margin-bottom: 9% !important;
@@ -64,7 +64,7 @@
     position: relative;
     background: url('/images/dog-pic-1.jpg') center center;
     background-size: cover;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     width: 100%;
     min-heigh: 400px;
     margin-top: 0px;
@@ -73,15 +73,20 @@
   /*.margin-top{
     margin-top: 12%;
   }*/
+
+  .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child), .input-group .form-control:not(:first-child):not(:last-child) {
+    border-radius: 5px !important;
+}
+
 </style>
 
 <div class="row">
-  <div class="col-md-12 jumbotron">
+  <div class="col-lg-12 jumbotron">
     <div class="container">
       <img src="/images/where2wag-white.png" alt="Where 2 Wag" class="logo-main center">
-      <div class="input-group search-bar"><!--Search Bar -->
-        <form action="/"  method="GET" class="form-inline">
-            <div class="form-group">
+        <form action="/"  method="GET" class="form-hornizontal search-bar">
+          <div class="input-group search-bar"><!--Search Bar -->
+            <div class="form-group col-md-5">
               <select class="form-control" name="term">
                 <option value="bars">Bars</option>
                 <option value="beaches">Beaches</option>
@@ -89,12 +94,14 @@
                 <option value="parks">Parks</option>
                 <option value="restaurants">Restaurants</option>
               </select>
-              <input name="location" type="text" class="form-control" placeholder="Search for location">
-            <span class="input-group-btn">
+            </div>
+              <input name="location" type="text" class="form-control col-md-6" placeholder="Search for location">
+            <span class="input-group-btn col-sm-1">
               <button class="btn btn-default" type="submit">Go!</button>
             </span>
+            </div><!--End Search Bar -->
         </form>
-      </div><!--End Search Bar -->
+
     </div>
   </div>
 </div>
